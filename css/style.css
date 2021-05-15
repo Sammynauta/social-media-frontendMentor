@@ -100,7 +100,7 @@ main {
 }
 
 .social-follow:hover {
-    background: var(--Desaturated-Blue);
+    background: var(--Toggle2);
     transform: scale(1);
     transition: transform .2s;
 }
@@ -137,4 +137,69 @@ main {
 
 .youtube .number-follow p {
     color: var(--Bright-Red);
+}
+
+.over2 h3 {
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--Dark-Grayish-Blue);
+}
+
+.number-overwiew {
+    background: var(--Light-Grayish-Blue);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 130px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    transform: scale(0.95);
+    transform-style: preserve-3d;
+    font-family: 'Inter', sans-serif;
+   
+}
+
+.number-overwiew:hover {
+    background: var(--Toggle2);
+    transform: scale(1);
+    transition: transform .2s;
+}
+
+.details {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 700;
+    color: var(--Dark-Grayish-Blue);
+
+}
+
+.details-number {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 10px;
+}
+
+.details-number span {
+    font-weight: 700;
+    color: var(--Very-Dark-Blue);
+    font-size: 30px;
+}
+
+.porcents {
+    color: var(--Lime-Green);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.facebookdown .porcents {
+    color: var(--Bright-Red);
+    font-size: 14px;
+}
+
+.youtubedown .porcents {
+    color: var(--Bright-Red);
+    font-size: 14px;
 }
