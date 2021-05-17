@@ -7,24 +7,24 @@
     --Instagram: linear-gradient(90deg, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
     --YouTube: hsl(348, 97%, 39%);
 
-    --Toggle1: hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+    --Toggle1: linear-gradient(90deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
     --Toggle2: hsl(230, 22%, 74%);
 
-/*Dark Theme*/ 
+    --body-BG: hsl(0, 0%, 100%);
+    --header-top: hsl(225, 100%, 98%);
+    --box-bg: hsl(227, 47%, 96%);
+    --text1: hsl(228, 12%, 44%);
+    --text2: hsl(230, 17%, 14%);
+    --hover: hsl(0, 0%, 91%);
+}
 
-    --Very-Dark-Blue-BG: hsl(230, 17%, 14%);
-    --Very-Dark-Blue-Top: hsl(232, 19%, 15%);
-    --Dark-Desaturated-Blue: hsl(228, 28%, 20%);
-    --Desaturated-Blue: hsl(228, 34%, 66%);
-    --White: hsl(0, 0%, 100%);
-
-/*Light Theme*/ 
-
-    --White-BG: hsl(0, 0%, 100%);
-    --Very-Pale-Blue: hsl(225, 100%, 98%);
-    --Light-Grayish-Blue: hsl(227, 47%, 96%);
-    --Dark-Grayish-Blue: hsl(228, 12%, 44%);
-    --Very-Dark-Blue: hsl(230, 17%, 14%);
+.darkmode:root {
+    --body-BG: hsl(230, 17%, 14%);
+    --header-top: hsl(232, 19%, 15%);
+    --box-bg: hsl(228, 28%, 20%);
+    --text1: hsl(228, 34%, 66%);
+    --text2: hsl(0, 0%, 100%);
+    --hover: hsl(228, 25%, 31%);
 }
 
 * {
@@ -34,37 +34,106 @@
 }
 
 body {
-   background: var(--White-BG);
+    background: var(--body-BG);
 }
 
 header {
-    background: var(--Very-Pale-Blue);
-    height: 250px;
-    border-radius: 0px 0px 15px 15px;
+    background: var(--header-top);
+    height: 200px;
     font-family: 'Inter', sans-serif;
 }
 
-header h3 {
+section {
+    position: relative;
+    background: var(--body-BG);
+}
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-darkmode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text1);
+}
+
+.dashboard h3 {
     font-weight: 700;
     font-size: 25px;
+    color: var(--text2);
 }
 
-header span {
+.dashboard span {
     font-weight: 700;
     font-size: 16px;
-    color: var(--Dark-Grayish-Blue);
+    color: var(--text1);
 }
 
-main {
-    top: -100px;
-    display: flex;
+.checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.switch {
     position: relative;
+    display: flex;
+    
+    cursor: pointer;
+
+    width: 80px;
+    height: 40px;
+    border-radius: 200px;
+
+    background: var(--Toggle2);
+
+    transition: background-color 0.3s;
+}
+
+.circle {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    
+    background: white;
+    transition: 0.3s;
+}
+
+.checkbox:checked + .switch .circle {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+.checkbox:checked + .switch {
+    background: var(--Toggle1);
+}
+
+.over1 {
+    position: relative;
+    top: -80px;
+}
+
+.over2 h3 {
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--text2);
 }
 
 .social-follow {
     display: flex;
     flex-direction: column;
-    background: var(--Light-Grayish-Blue);
+    background: var(--box-bg);
     height: 200px;
     justify-content: center;
     align-items: center;
@@ -100,15 +169,15 @@ main {
 }
 
 .social-follow:hover {
-    background: var(--Toggle2);
-    transform: scale(1);
+    background: var(--hover);
     transition: transform .2s;
+    transform: scale(1);
 }
 
 .nickname {
     font-weight: 700;
     font-size: 14px;
-    color: var(--Dark-Grayish-Blue);
+    color: var(--Toggle2);
 }
 
 .number-follow {
@@ -119,12 +188,12 @@ main {
 }
 .number-follow h1 {
     font-weight: 700;
-    color: var(--Very-Dark-Blue);
+    color: var(--text2);
 }
 
 .number-follow span {
     font-weight: 400px;
-    color: var(--Dark-Grayish-Blue);
+    color: var(--Toggle2);
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -139,14 +208,8 @@ main {
     color: var(--Bright-Red);
 }
 
-.over2 h3 {
-    font-weight: 700;
-    font-size: 25px;
-    color: var(--Dark-Grayish-Blue);
-}
-
 .number-overwiew {
-    background: var(--Light-Grayish-Blue);
+    background: var(--box-bg);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -162,7 +225,7 @@ main {
 }
 
 .number-overwiew:hover {
-    background: var(--Toggle2);
+    background: var(--hover);
     transform: scale(1);
     transition: transform .2s;
 }
@@ -171,7 +234,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     font-weight: 700;
-    color: var(--Dark-Grayish-Blue);
+    color: var(--Toggle2);
 
 }
 
@@ -184,7 +247,7 @@ main {
 
 .details-number span {
     font-weight: 700;
-    color: var(--Very-Dark-Blue);
+    color: var(--text2);
     font-size: 30px;
 }
 
